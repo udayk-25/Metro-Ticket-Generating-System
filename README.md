@@ -1,40 +1,32 @@
-# Metro Ticket Booking System using ServiceNow
+# Metro Ticket Generating System — Updated Project Package
 
-This package was prepared from the two uploaded archives:
-- `1. Ideation Phase` (empathy map, brainstorming/prioritization, problem statement templates)
-- `2. Requirement Analysis` (solution requirements, technology stack, data-flow/user-story templates)
+Updated: 15 October 2026  
+Platform concept: ServiceNow Service Catalog + Flow Designer
 
-The five Drive folder links were not all uploaded as files. This package therefore uses the two ZIP archives available in this chat and the project description supplied by the user. Upload the remaining phase folders if you want those templates filled as well.
+## What changed after reviewing the additional phase archives
+The uploaded Project Design, Project Planning, and Project Development archives were reviewed. Most files are generic templates or examples; some are for unrelated platforms (Tableau, Power BI, Salesforce, ML, AI, and GenAI). This package includes project-specific adapted documents for the metro-ticketing workflow rather than copying unrelated metrics or example stories.
 
-## Deliverables
-- `Metro_Ticket_Booking_Project_Report.docx` — editable report
-- `Metro_Ticket_Booking_Project_Report.pdf` — PDF report
-- `Metro_Ticket_Booking_Presentation.pptx` — presentation
-- `ServiceNow_Setup_Guide.md` — implementation/configuration guide
-- `servicenow_scripts/` — starter ServiceNow scripts
-- `generate_qr_ticket.py` — local demo QR generator
-- `assets/demo_metro_ticket_qr.png` — sample QR image
-- `requirements.txt` — Python dependency for QR generator
+## Main deliverables
+- `Metro_Ticket_Generating_System_Project_Report.docx` — consolidated report with updated source review, design, planning, testing, and production-readiness sections.
+- `Metro_Ticket_Generating_System_Project_Report.pdf` — PDF summary report.
+- `Metro_Ticket_Generating_System_Presentation.pptx` — original deck extended with design, sprint planning, testing, and UAT slides.
+- `design_phase/Metro_Ticketing_Project_Design.docx` — problem–solution fit, proposed solution, and architecture.
+- `planning_phase/Metro_Ticketing_Project_Planning.docx` — project-specific backlog, story points, sprint plan, and Definition of Done.
+- `development_testing/Metro_Ticketing_Development_Testing_UAT.docx` — functional cases, performance/reliability plan, UAT, defect log, and sign-off template.
+- `development_testing/functional_test_cases.csv` and `performance_test_plan.csv` — editable test logs.
+- `ServiceNow_Setup_Guide.md` — implementation notes.
+- `generate_qr_ticket.py` and `assets/demo_metro_ticket_qr.png` — local demonstration only.
+- `source_templates/` — the three uploaded source ZIP archives, retained unchanged for traceability.
 
-## Quick start: QR generator
-Install Python 3.9+ and the dependency:
-```bash
-python -m pip install -r requirements.txt
-```
-Generate a demo ticket QR:
-```bash
-python generate_qr_ticket.py --origin Central --destination Museum --travel-date 2026-10-15 --passengers 1 --fare 15 --output demo_ticket.png
-```
-The generated QR encodes a demo payload. It is not a valid metro ticket.
+## Important limits
+- The sample fare (INR 10 base + INR 5 per station interval) is illustrative, not an official fare.
+- No live metro operator, payment gateway, station database, or gate validator is connected.
+- QR code images alone do not prove ticket validity. A trusted server-side verification service is required.
+- Tests are marked **Not executed / Pending**. Run them in your own ServiceNow sub-production instance and fill in actual results. No test pass rate, accuracy, performance result, or velocity is claimed.
+- The included ServiceNow scripts, if present, are illustrative and require adaptation to your actual instance and table/variable names.
 
-## ServiceNow implementation
-Follow `ServiceNow_Setup_Guide.md`. Script files are starting examples and need adaptation to your scoped app/table names, ACLs, fare rules, and notification design. Test in a non-production instance.
-
-## Fare assumptions
-Demo fare: INR 10 base + INR 5 per station interval, multiplied by passenger count. This is only an example and must be replaced with approved operator fare rules.
-
-## Security warning
-Do not embed personal or payment information in the QR code. QR content must be verified against a trusted server-side ticket record. A production system needs ticket status/expiry checks and replay prevention.
-
-## Current source coverage
-Only the Ideation Phase and Requirement Analysis ZIPs were attached in this conversation. The other three Drive folder archives are not present in this package.
+## Recommended next steps
+1. Confirm actual ServiceNow table names, catalog variables, roles, and instance version.
+2. Replace demo station/fare assumptions with approved configuration.
+3. Configure server-side validation, ACLs, Flow Designer, notifications, and secure ticket verification.
+4. Execute functional, security, performance, accessibility, and UAT cases; record evidence and sign-off.
